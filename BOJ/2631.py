@@ -1,4 +1,4 @@
-# BOJ 2631
+# BOJ 2631 줄세우기
 
 import sys
 input = sys.stdin.readline
