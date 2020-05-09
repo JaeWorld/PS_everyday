@@ -1,3 +1,5 @@
+# BOJ 10282 해킹
+
 import sys
 import heapq
 input = sys.stdin.readline
