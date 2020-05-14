@@ -38,3 +38,42 @@ for _ in range(t):
       res += 1
     
   print(res)
+  
+  
+# BFS 풀이
+
+import sys
+from collections import deque
+input = sys.stdin.readline
+
+def bfs(start):
+  visited = [0]*(n+1)
+  visited[start] = 1
+  queue = deque()
+  queue.append(start)
+  count = 0
+
+  while queue:
+    curr = queue.popleft()
+    for adj in graph[curr]:
+      if not visited[adj]:
+        queue.append(adj)
+        visited[adj] = 1 
+        count += 1
+
+  return count
+
+t = int(input())
+for _ in range(t):
+  n, m = map(int, input().split())
+  links = [list(map(int, input().split())) for _ in range(m)]
+  graph = [[] for _ in range(n+1)]
+
+  for link in links:
+    a, b = link
+    graph[a].append(b)
+    graph[b].append(a)
+
+  res = bfs(1)
+
+  print(res)
