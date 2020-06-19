@@ -1,0 +1,40 @@
+# BOJ 15686 치킨 배달
+
+# 브루트포스
+
+import sys
+from itertools import combinations
+input = sys.stdin.readline
+
+def main():
+    n, m = map(int, input().split())
+    c = [list(map(int, input().split())) for _ in range(n)]
+    chi = []
+    house = []
+    res = 987654321
+
+    for i in range(n):
+        for j in range(n):
+            if c[i][j] == 1:
+                house.append([i, j])
+            if c[i][j] == 2:
+                chi.append([i, j])
+
+    comb = list(combinations(chi, m))
+
+    for i in range(len(comb)):
+        temp = 0
+        for j in range(len(house)):
+            minLen = 99999
+            hy, hx = house[j]
+            for k in range(m):
+                cy, cx = comb[i][k]
+                minLen = min(minLen, abs(cy-hy)+abs(cx-hx))
+            temp += minLen
+
+        if temp < res:
+            res = temp
+
+    print(res)
+
+main()
