@@ -1,4 +1,4 @@
 # PS_every_day
 
-매일 PS 문제를 풀며 코드를 남기는 공간입니다.
-주 언어는 파이썬, C++을 사용합니다.
+This is a space where I solve problem-solving (PS) questions daily and keep a record of my code.
+The main programming languages I use are Python and C++.
